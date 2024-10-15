@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Application.Core;
+using Application.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
@@ -19,6 +20,7 @@ public class List
     {
         private readonly IMapper _mapper;
         private readonly DataContext _context;
+        
         
         public Handler(DataContext context, IMapper mapper)
         {
