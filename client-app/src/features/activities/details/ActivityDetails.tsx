@@ -17,7 +17,7 @@ export default observer(function ActivityDetails() {
     useEffect(() => {
         if (id) loadActivity(id);
         return () => clearSelectedActivity();
-    }), [id, loadActivity, clearSelectedActivity]
+    }, [id, loadActivity, clearSelectedActivity])
 
     if (loadingIntial || !activity) return <LoadingComponent />;
 
@@ -25,7 +25,7 @@ export default observer(function ActivityDetails() {
         <Grid>
             <Grid.Column width={10}>
                 <ActivityDetailedHeader activity={activity} />
-                <ActivityDetailedInfo  activity={activity}/>
+                <ActivityDetailedInfo activity={activity}/>
                 <ActivityDetailedChat activtyId={activity.id}/>
             </Grid.Column>
             <Grid.Column width={6}>
