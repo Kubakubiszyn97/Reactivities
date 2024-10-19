@@ -1,4 +1,5 @@
 using Application.Activities;
+using Application.Core;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +10,9 @@ public class ActivitiesController : BaseAPIController
     public ActivitiesController() {}
 
     [HttpGet]
-    public async Task<IActionResult> GetActivites()
+    public async Task<IActionResult> GetActivites([FromQuery] PagingParams param)
     {
-        return HandleResult(await Mediator.Send(new List.Query()));
+        return HandlePagedResult(await Mediator.Send(new List.Query{Params = param}));
     }
 
     [HttpGet("{id}")]
