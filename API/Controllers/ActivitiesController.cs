@@ -10,7 +10,7 @@ public class ActivitiesController : BaseAPIController
     public ActivitiesController() {}
 
     [HttpGet]
-    public async Task<IActionResult> GetActivites([FromQuery] PagingParams param)
+    public async Task<IActionResult> GetActivites([FromQuery] ActivityParams param)
     {
         return HandlePagedResult(await Mediator.Send(new List.Query{Params = param}));
     }
